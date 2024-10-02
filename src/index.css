@@ -1,43 +1,225 @@
-/* Card.css */
-.card {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between cards */
+  justify-content: center; /* Center the cards horizontally */
   padding: 20px;
-  margin: 10px;
-  width: 250px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Add hover effects */
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+.card {
+  width: 230px; /* Fixed width */
+  height: auto; /* Auto height to accommodate wrapped text */
+  padding: 10px; /* Slightly reduced padding */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative; /* For positioning avatar */
 }
 
+/* ID and user avatar in the same line */
 .card-header {
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.card-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #333333;
+.user-avatar {
+  width: 25px; /* Smaller avatar */
+  height: 25px; /* Smaller height */
+  border-radius: 50%;
+}
+
+.ticket-id {
+  font-size: 10px; /* Smaller grey ID */
+  color: grey;
+  font-weight: 500;
 }
 
 .card-body {
-  font-size: 14px;
-  color: #555555;
+  display: flex;
+  align-items: flex-start; /* Align checkbox to the top */
+  margin-top: 4px; /* Reduced space between checkbox and title */
 }
 
-.card-body p {
-  margin: 5px 0;
+/* Circular checkbox */
+.custom-checkbox {
+  width: 12px; /* Smaller checkbox */
+  height: 12px; /* Smaller checkbox */
+  margin-right: 4px; /* Reduced spacing between checkbox and title */
+  cursor: pointer;
+  border-radius: 50%;
+  appearance: none;
+  background-color: white; /* Changed to white */
+  border: 2px solid #999;
+  position: relative;
 }
 
-.card-body strong {
-  font-weight: 600;
-  color: #333333;
+.custom-checkbox:checked {
+  background-color: #007bff; /* Blue color when checked */
+  border-color: #007bff;
+}
+
+.custom-checkbox:checked::after {
+  content: "✓"; /* Standard tickmark */
+  position: absolute;
+  left: 1px; /* Adjusted position for tick */
+  top: -1px; /* Adjusted position for tick */
+  font-size: 8px; /* Smaller tickmark */
+  color: white;
+}
+
+.ticket-title {
+  font-size: 12px; /* Smaller title font */
+  font-weight: bold;
+  margin: 0;
+  white-space: normal; /* Allow wrapping */
+  overflow: hidden; /* Cuts off text that is too long */
+  text-overflow: ellipsis; /* Adds '...' to indicate overflow */
+  flex: 1; /* Allows title to take up remaining space */
+}
+
+/* Footer: Aligns the tag and logo */
+.card-footer {
+  display: flex;
+  width: 40%;
+  height: 15px;
+  align-items: center;
+  margin-top: 8px; /* Reduced margin to align with other content */
+  padding: 2.5px; /* Padding for the tag container */
+  border: 1px solid #e0e0e0; /* Light grey border */
+  border-radius: 4px; /* Slightly rounded corners */
+  background-color: white; /* White background */
+
+  justify-content: flex-start; /* Align items to the start */
+}
+
+.logo-image {
+  width: 16px; /* Slightly smaller logo */
+  height: 16px; /* Slightly smaller height */
+  margin-right: 4px; /* Reduced spacing between logo and tag */
+}
+
+.grey-dot {
+  font-size: 14px; /* Slightly smaller dot */
+  color: grey;
+  margin-right: 4px; /* Reduced margin */
+}
+
+.ticket-tag {
+  font-size: 10px; /* Smaller tag font */
+  color: grey;
+}
+
+/* Navbar */
+
+.navbar {
+  display: flex;
+  height: 5vh;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 25px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.display-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 12px;
+}
+
+.logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.chevron-icon {
+  margin-left: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  left: 37px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+  width: 250px;
+}
+
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.right-dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.right-dropdown-menu {
+  position: absolute;
+  top: 70px;
+  left: 305px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+}
+.select-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.right-dropdown-item:hover {
+  background-color: #e0e0e0;
+}
+
+.chevron-icon {
+  margin-right: 10px;
+  color: rgb(88, 85, 85);
+  font-size: 12px;
+}
+
+.select-box:hover .chevron-icon {
+  color: rgb(51, 49, 49);
+}
+
+.title {
+  font-weight: 550;
+  color: rgb(151, 147, 147);
 }

@@ -1,25 +1,33 @@
 import React from "react";
 
-const Card = ({ id, title, status, priority, userId, userName }) => {
+const Card = ({ id, title, status, priority, userId, userName, tag }) => {
   return (
-    <div className="card">
-      <div className="card-header">
-        <h3 className="card-title">{title}</h3>
-      </div>
-      <div className="card-body">
-        <p>
-          <strong>ID:</strong> {id}
-        </p>
-        <p>
-          <strong>Status:</strong> {status}
-        </p>
-        <p>
-          <strong>Priority:</strong> {priority}
-        </p>
-        <p>
-          <strong>userId:</strong> {userId}
-        </p>
-        <p>User: {userName}</p>
+    <div className="card-container">
+      <div className="card" key={id}>
+        <div className="card-header">
+          <span className="ticket-id">{id}</span>
+          <img src="" alt="User Avatar" className="user-avatar" />
+        </div>
+        <div className="card-body">
+          <input type="checkbox" className="custom-checkbox" />
+          <span className="ticket-title">{title}</span>
+        </div>
+        <div className="card-footer">
+          <span className="grey-dot">•</span>
+          <span className="ticket-tag">{tag}</span>
+        </div>
+        <div className="card-status">
+          <span className="ticket-status">{status}</span>
+        </div>
+        <div className="card-userName">
+          <span className="ticket-userName">{userName}</span>
+        </div>
+        <div className="card-userId">
+          <span className="ticket-userId">{userId}</span>
+        </div>
+        <div className="card-priority">
+          <span className="ticket-priority">{priority}</span>
+        </div>
       </div>
     </div>
   );
